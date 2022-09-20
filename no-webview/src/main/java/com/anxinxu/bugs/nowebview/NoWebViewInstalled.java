@@ -70,34 +70,6 @@ public class NoWebViewInstalled {
                 Logger.e(TAG, "fix reflect error", ERROR_RWVFC);
                 return ERROR_RWVFC;
             }
-            if (!WebViewFactoryReflection.sProviderInstance.isReflectSucceed()) {
-                Logger.e(WebViewFactoryReflection.sProviderInstance.getError(), TAG, "fix result reflect error", ERROR_RSPI);
-                return ERROR_RSPI;
-            }
-            Class<?> sProviderInstanceClass = WebViewFactoryReflection.sProviderInstance.fieldType();
-            if (sProviderInstanceClass == null) {
-                Logger.e(TAG, "fix result reflect error", ERROR_RSPIT);
-                return ERROR_RSPIT;
-            }
-            if (!sProviderInstanceClass.isInterface()) {
-                Logger.e(TAG, "fix result reflect error", ERROR_RSPITI, sProviderInstanceClass);
-                return ERROR_RSPITI;
-            }
-            Object o = WebViewFactoryReflection.sProviderInstance.get();
-            if (o != null) {
-                if (o == webViewFactoryProviderProxy) {
-                    Logger.e(TAG, "fix result provider is not null", ERROR_HSPFF, o);
-                    return ERROR_HSPFF;
-                } else {
-                    Logger.e(TAG, "fix result provider is not null", ERROR_HSPF, o);
-                    return ERROR_HSPF;
-                }
-            }
-
-            if (!WebViewFactoryReflection.getProvider.isReflectSucceed()) {
-                Logger.e(WebViewFactoryReflection.getProvider.getError(), TAG, "fix result reflect error", ERROR_RGP);
-                return ERROR_RGP;
-            }
             if (!WebViewFactoryReflection.getProviderClass.isReflectSucceed() && !WebViewFactoryReflection.getFactoryClass.isReflectSucceed()) {
                 Logger.e(TAG, "fix result reflect error", ERROR_RGPC);
                 return ERROR_RGPC;
@@ -114,10 +86,41 @@ public class NoWebViewInstalled {
             }
             if (providerClazz == null) {
                 Logger.e(error, TAG, "fix provider class is null");
+
+                if (!WebViewFactoryReflection.getProvider.isReflectSucceed()) {
+                    Logger.e(WebViewFactoryReflection.getProvider.getError(), TAG, "fix result reflect error", ERROR_RGP);
+                    return ERROR_RGP;
+                }
+
                 Object provider = WebViewFactoryReflection.getProvider.invoke();
                 if (provider == null) {
                     isNoWebViewInstalled = true;
                     Logger.e(WebViewFactoryReflection.getProvider.getError(), TAG, "fix getProvider is null");
+
+                    if (!WebViewFactoryReflection.sProviderInstance.isReflectSucceed()) {
+                        Logger.e(WebViewFactoryReflection.sProviderInstance.getError(), TAG, "fix result reflect error", ERROR_RSPI);
+                        return ERROR_RSPI;
+                    }
+                    Class<?> sProviderInstanceClass = WebViewFactoryReflection.sProviderInstance.fieldType();
+                    if (sProviderInstanceClass == null) {
+                        Logger.e(TAG, "fix result reflect error", ERROR_RSPIT);
+                        return ERROR_RSPIT;
+                    }
+                    if (!sProviderInstanceClass.isInterface()) {
+                        Logger.e(TAG, "fix result reflect error", ERROR_RSPITI, sProviderInstanceClass);
+                        return ERROR_RSPITI;
+                    }
+                    Object o = WebViewFactoryReflection.sProviderInstance.get();
+                    if (o != null) {
+                        if (o == webViewFactoryProviderProxy) {
+                            Logger.e(TAG, "fix result provider is not null", ERROR_HSPFF, o);
+                            return ERROR_HSPFF;
+                        } else {
+                            Logger.e(TAG, "fix result provider is not null", ERROR_HSPF, o);
+                            return ERROR_HSPF;
+                        }
+                    }
+
                     WebViewFactoryProvider webViewFactoryProvider = new WebViewFactoryProvider(callback);
                     Object webViewFactoryProviderProxy = webViewFactoryProvider.newProxy(sProviderInstanceClass);
                     if (webViewFactoryProviderProxy != null) {
