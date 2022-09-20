@@ -14,7 +14,7 @@ class NoopWebBackForwardList extends WebBackForwardList {
 
     @Override
     public int getCurrentIndex() {
-        return 0;
+        return -1;
     }
 
     @Override

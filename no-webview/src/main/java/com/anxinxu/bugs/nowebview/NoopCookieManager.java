@@ -40,7 +40,7 @@ class NoopCookieManager extends CookieManager {
 
     @Override
     public String getCookie(String url) {
-        return null;
+        return "";
     }
 
     @Override

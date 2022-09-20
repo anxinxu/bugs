@@ -28,6 +28,8 @@
 
 -keep class com.anxinxu.bugs.nowebview.WebViewFactoryReflection{*;}
 -keep class com.anxinxu.bugs.nowebview.WebViewProviderResponseReflection{*;}
+-keep class com.anxinxu.bugs.nowebview.GeolocationPermissionsReflection{*;}
+-keep class com.anxinxu.bugs.nowebview.WebStorageReflection{*;}
 
 -keep class com.anxinxu.lib.reflection.android.ActivityThreadReflection{*;}
 -keep class com.anxinxu.lib.reflection.android.ServiceManagerReflection{*;}

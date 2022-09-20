@@ -123,7 +123,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public ZoomDensity getDefaultZoom() {
-        return null;
+        return ZoomDensity.MEDIUM;
     }
 
     @Override
@@ -163,7 +163,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public LayoutAlgorithm getLayoutAlgorithm() {
-        return null;
+        return LayoutAlgorithm.NORMAL;
     }
 
     @Override
@@ -173,7 +173,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getStandardFontFamily() {
-        return null;
+        return "sans-serif";
     }
 
     @Override
@@ -183,7 +183,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getFixedFontFamily() {
-        return null;
+        return "monospace";
     }
 
     @Override
@@ -193,7 +193,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getSansSerifFontFamily() {
-        return null;
+        return "sans-serif";
     }
 
     @Override
@@ -203,7 +203,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getSerifFontFamily() {
-        return null;
+        return "serif";
     }
 
     @Override
@@ -213,7 +213,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getCursiveFontFamily() {
-        return null;
+        return "cursive";
     }
 
     @Override
@@ -223,7 +223,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getFantasyFontFamily() {
-        return null;
+        return "fantasy";
     }
 
     @Override
@@ -233,7 +233,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getMinimumFontSize() {
-        return 0;
+        return 8;
     }
 
     @Override
@@ -243,7 +243,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getMinimumLogicalFontSize() {
-        return 0;
+        return 8;
     }
 
     @Override
@@ -253,7 +253,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getDefaultFontSize() {
-        return 0;
+        return 16;
     }
 
     @Override
@@ -263,7 +263,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getDefaultFixedFontSize() {
-        return 0;
+        return 16;
     }
 
     @Override
@@ -388,7 +388,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public PluginState getPluginState() {
-        return null;
+        return PluginState.OFF;
     }
 
     @Override
@@ -408,7 +408,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getDefaultTextEncodingName() {
-        return null;
+        return "UTF-8";
     }
 
     @Override
@@ -418,7 +418,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public String getUserAgentString() {
-        return null;
+        return "";
     }
 
     @Override
@@ -448,7 +448,7 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getMixedContentMode() {
-        return 0;
+        return MIXED_CONTENT_ALWAYS_ALLOW;
     }
 
     @Override
@@ -478,6 +478,6 @@ class NoopWebSettings extends WebSettings {
 
     @Override
     public int getDisabledActionModeMenuItems() {
-        return 0;
+        return MENU_ITEM_NONE;
     }
 }

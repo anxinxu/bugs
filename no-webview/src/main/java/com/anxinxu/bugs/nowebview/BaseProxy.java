@@ -41,6 +41,8 @@ class BaseProxy {
             result = 0f;
         } else if (returnType == double.class) {
             result = 0.0;
+        } else if (returnType == String.class) {
+            return "";
         } else {
             result = null;
         }

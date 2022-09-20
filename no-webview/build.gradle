@@ -82,9 +82,9 @@ afterEvaluate {
                 artifact androidSourcesJar
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.anxinxu.bugs'
-                artifactId = 'no-webview'
-                version = '1.0'
+                groupId = 'com.github.anxinxu'
+                artifactId = 'bugs-no-webview'
+                version = '1.3'
             }
         }
     }
