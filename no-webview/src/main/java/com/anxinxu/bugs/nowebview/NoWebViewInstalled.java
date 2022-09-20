@@ -154,6 +154,7 @@ public class NoWebViewInstalled {
 
     /**
      * call this need after fix
+     * @return true is no web view installed
      */
     public static boolean isNoWebViewInstalled() {
         return isNoWebViewInstalled;
