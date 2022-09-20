@@ -49,6 +49,7 @@ public class NoWebViewInstalled {
     private static WebViewFactoryProvider webViewFactoryProvider;
     private static Object webViewFactoryProviderProxy;
     private static ServiceManagerReflection.IHookBinderResult hookBinderResult;
+    private static boolean isNoWebViewInstalled = false;
 
     public static void disableFix() {
         Logger.d(TAG, "disableFix start...");
@@ -115,6 +116,7 @@ public class NoWebViewInstalled {
                 Logger.e(error, TAG, "fix provider class is null");
                 Object provider = WebViewFactoryReflection.getProvider.invoke();
                 if (provider == null) {
+                    isNoWebViewInstalled = true;
                     Logger.e(WebViewFactoryReflection.getProvider.getError(), TAG, "fix getProvider is null");
                     WebViewFactoryProvider webViewFactoryProvider = new WebViewFactoryProvider(callback);
                     Object webViewFactoryProviderProxy = webViewFactoryProvider.newProxy(sProviderInstanceClass);
@@ -145,6 +147,13 @@ public class NoWebViewInstalled {
         }
         Logger.d(TAG, "fix result not need", NO_FIX);
         return NO_FIX;
+    }
+
+    /**
+     * call this need after fix
+     */
+    public static boolean isNoWebViewInstalled() {
+        return isNoWebViewInstalled;
     }
 
     public static void setLogEnable(boolean logEnable) {
