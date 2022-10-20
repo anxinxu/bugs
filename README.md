@@ -9,6 +9,8 @@ You may see errors like this `android.webkit.WebViewFactory$MissingWebViewPackag
 
 ok, use this can simple fix it.
 
+use one reflections [page][2].
+
 #### Step 1.download
 
 1. download aar or jar from GitHub's [releases page][1].
@@ -51,3 +53,6 @@ dependencies {
 
 
 [1]: https://github.com/anxinxu/bugs/releases
+[2]: https://github.com/anxinxu/reflections
+
+## Thanks
