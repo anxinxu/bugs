@@ -50,6 +50,22 @@ dependencies {
 ```
  
  you can use `NoWebViewInstalled.fakeError()` fake this error.
+ 
+ #### Step 3. add proguard
+ 
+ add this in your file `proguard-rules.pro`
+ 
+ ```java
+-keep class com.anxinxu.bugs.nowebview.WebViewFactoryReflection{*;}
+-keep class com.anxinxu.bugs.nowebview.WebViewProviderResponseReflection{*;}
+-keep class com.anxinxu.bugs.nowebview.GeolocationPermissionsReflection{*;}
+-keep class com.anxinxu.bugs.nowebview.WebStorageReflection{*;}
+
+-keep class com.anxinxu.lib.reflection.android.ActivityThreadReflection{*;}
+-keep class com.anxinxu.lib.reflection.android.ServiceManagerReflection{*;}
+-keep class com.anxinxu.lib.reflection.android.VMRuntimeReflection{*;}
+ ```
+ 
 
 
 [1]: https://github.com/anxinxu/bugs/releases
